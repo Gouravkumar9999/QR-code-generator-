@@ -1,0 +1,268 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page Header Styling */
+.page-header {
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(135deg, #1140cb, #bd375f);
+    padding: 20px 0;
+    margin-bottom: 40px;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Keeps header at top */
+}
+
+.page-header h1 {
+    font-family: cursive;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: rgb(201, 47, 19); /* Solid white color for readability */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Shadow for better contrast */
+}
+
+/* Page Footer Styling */
+.page-footer {
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(135deg, #1140cb, #bd375f);
+    padding: 20px 0;
+    margin-top: 40px;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1140cb, #c93d67);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the container vertically */
+    min-height: 100vh;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 80px; /* Adjust space for fixed header */
+}
+
+/* Main Content Styling (Flex Layout) */
+.main-content {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    gap: 40px; /* Space between left (recent) and right (form) sections */
+    justify-content: flex-start; /* Align to the left */
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffffff, #f3f4f7);
+    border: 3px solid transparent;
+    border-radius: 16px;
+    background-clip: padding-box;
+    position: relative;
+    flex-direction: row; /* Align items horizontally */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2),
+                0 10px 15px rgba(0, 0, 0, 0.1),
+                inset 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Gradient Border with Shadow */
+.main-content:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c, #6a11cb);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Left Column - Recent QR Codes List */
+.recent-qr-codes {
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-right: 20px; /* Space between the list and form */
+    height: 100%; /* Make sure the recent list takes full height */
+    overflow-y: auto; /* Allow scrolling if necessary */
+}
+
+.recent-search-item {
+    background-color: #f4900e;
+    padding: 22px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: black; /* Text color updated to black */
+}
+
+.recent-search-item:hover {
+    background-color: #f1f1f1;
+    transform: translateX(5px);
+}
+
+.search-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.search-content span {
+    flex-grow: 1;
+    font-size: 1rem;
+    color: black;  /* Text color in the search content set to black */
+}
+
+.qr-thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Right Column - QR Code Generator */
+.qr-container {
+    display: none;
+    margin-top: 5px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #f3f4f7);
+    border: 3px solid #6a11cb;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.qr-container.active {
+    display: block;
+}
+
+/* QR Code Styling - Centering the QR code */
+#qrcode {
+    padding: 15px;
+    background: #ffffff;
+    border: 2px solid #2575fc;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Ensure the QR code is centered */
+    margin: 0 auto; /* Center the QR code container horizontally */
+    max-width: 250px; /* Limit the width */
+}
+
+/* Input and Button Styling */
+input[type="text"] {
+    width: 100%;
+    max-width: 380px;
+    padding: 12px 15px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #f3f4f7, #ffffff);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.5);
+    outline: none;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Download Button */
+#downloadBtn {
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+#downloadBtn:hover {
+    background: linear-gradient(135deg, #218838, #19692c);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+#downloadBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for Small Screens */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .recent-qr-codes {
+        max-width: 100%;
+    }
+
+    .qr-container {
+        margin-top: 0;
+    }
+}
+.recent-qr-codes h3{
+    color: #bd375f;
+}
+.qr-form h1{
+    color: #bd375f;
+}
+#generateBtn{
+    padding: auto;
+    margin: 15px;
+}

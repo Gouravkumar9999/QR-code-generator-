@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>QR CODE GENERATOR</h1>
+    </header>
+  <div class="main-content">
+    <!-- Left Column for Recent QR Codes -->
+    <div class="recent-qr-codes">
+      <h3><i>Recent QR Codes</i></h3>
+      <ul id="recentSearches">
+        <!-- List items will be dynamically generated here -->
+      </ul>
+    </div>
+
+    <!-- Right Column for QR Code Generator Form -->
+    <div class="qr-form">
+      <h1><i>QR Code Generator</i></h1>
+      <input type="text" id="qrText" placeholder="Enter text or URL">
+      <button id="generateBtn">Generate QR Code</button>
+      <div class="qr-container" id="qrContainer">
+        <div id="qrcode"></div>
+        <button id="downloadBtn" style="display: none;">Download QR Code</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+  <footer class="page-footer">
+     <p>&copy; 2025 QR Code Generator</p>
+  </footer>
+</body>
+</html>
